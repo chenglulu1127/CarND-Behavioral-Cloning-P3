@@ -110,8 +110,6 @@ The final model architecture (model.py lines 74-85) consisted of a convolution n
 | Fully connected		| outputs 50        									|
 | Fully connected		| outputs 10        									|
 | Softmax				|         									|
-|						|												|
-|						|												|
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
