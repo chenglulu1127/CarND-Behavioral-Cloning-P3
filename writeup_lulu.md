@@ -20,11 +20,10 @@ The goals / steps of this project are the following:
 
 [image1]: ./plots/model_vis.png "Model Visualization"
 [image2]: ./plots/model_mse.png "Model Performance"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
+[image3]: ./plots/center_2018_04_16_13_29_12_036.jpg "Centerd Image"
+[image4]: ./plots/right_2018_04_16_13_29_12_036.jpg.jpg "Right Image"
+[image5]: ./plots/left_2018_04_16_13_29_12_036.jpg.jpg "Left Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -120,34 +119,32 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded three laps on track one using center lane driving. Here is an example image of center lane driving:
+The creation of the training set was the hardest process for me.... I was a really bad player of car racing games.... and always drove outside the road and ended up with hitting something.... In order to collect the dataset, I practiced the whole evening... Finally I could keep my car staying on the road..... 
 
-![alt text][image2]
+However, the way I did it was driving slowly and continuously pressing "<-" button to turn. But this actually caused a big problem for training the model because the steering angle would be always around 0.1-0.5... That's why the first model I trained had low training and validation accuracy but always fell off the road in autonomous mode. It coudn't succesffuly turn on big turns.  
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+So I collected data again and this time I practiced and could really drive like a driver. The steering angles looks good. And I used this training dataset to train a well behaved autonomous car.
+
+The final training dataset I recorded is three laps on track one using center lane driving. Here is an example image of center lane driving:
 
 ![alt text][image3]
-![alt text][image4]
-![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the dataset, I flipped images and angles thinking that this would help generalize the model and reduce the bias of more left turns. For example, here is an image that has then been flipped:
 
 ![alt text][image6]
-![alt text][image7]
 
-Etc ....
+I also augment the dataset by using the left and right side images and adding/minusing a correction of 0.5 to the center angles. Here are images of left and right side images of the centered image shown above:
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+![alt text][image5]
+![alt text][image4]
 
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 15. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 #### 4. Model Performance
 Here's a visualization of train and validation set performance:
+
 ![alt text][image2]
 
-For test on simulator, please refer to run.mp4.
+For live test performance on simulator, please refer to run.mp4.
