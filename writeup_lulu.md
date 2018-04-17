@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image3]: ./plots/center_2018_04_16_13_29_12_036.jpg "Centerd Image"
 [image4]: ./plots/right_2018_04_16_13_29_12_036.jpg.jpg "Right Image"
 [image5]: ./plots/left_2018_04_16_13_29_12_036.jpg.jpg "Left Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
+[image6]: ./plots/flipped_img.png "Flipped Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
