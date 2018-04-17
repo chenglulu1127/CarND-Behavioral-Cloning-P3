@@ -21,8 +21,8 @@ The goals / steps of this project are the following:
 [image1]: ./plots/model_vis.png "Model Visualization"
 [image2]: ./plots/model_mse.png "Model Performance"
 [image3]: ./plots/center_2018_04_16_13_29_12_036.jpg "Centerd Image"
-[image4]: ./plots/right_2018_04_16_13_29_12_036.jpg.jpg "Right Image"
-[image5]: ./plots/left_2018_04_16_13_29_12_036.jpg.jpg "Left Image"
+[image4]: ./plots/right_2018_04_16_13_29_12_036.jpg "Right Image"
+[image5]: ./plots/left_2018_04_16_13_29_12_036.jpg "Left Image"
 [image6]: ./plots/flipped_img.png "Flipped Image"
 
 ## Rubric Points
@@ -136,6 +136,7 @@ To augment the dataset, I flipped images and angles thinking that this would hel
 I also augment the dataset by using the left and right side images and adding/minusing a correction of 0.5 to the center angles. Here are images of left and right side images of the centered image shown above:
 
 ![alt text][image5]
+![alt text][image4]
 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
