@@ -18,8 +18,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
+[image1]: ./plots/model_vis.png "Model Visualization"
+[image2]: ./plots/model_mse.png "Model Performance"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
@@ -64,11 +64,9 @@ The model includes RELU layers to introduce nonlinearity (code line 77-80), and 
 
 #### 2. Attempts to reduce overfitting in the model
 
-I use fewer epochs to reduce overfitting. I tried dropout layer but it doesn't perform 
+I use fewer epochs to reduce overfitting. I tried dropout layer but it doesn't improve the performance. 
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
-
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 88-89). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
@@ -84,23 +82,37 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+My first step was to use a convolution neural network model that has 4 conv layers with relu activation and 4 fully connected layers. In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on both the training set and validation set. 
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+However when I imported the model to the simulator to run the autonomous mode, it always turned very little angle and fell off the road. I knew it must be the data collection problem. I'll further explain in section 3. 
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+After I collected better dataset, I ran 20 epochs to train. But validation set accuracy started to go up after 16 epochs. To avoid overfitting, I terminated the training at 15 epochs.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 74-85) consisted of a convolution neural network with the following layers and layer sizes:
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 160x320x4 image   							| 
+| Lambda         		| lambda x: x/255.0 - 0.5   							| 
+| Cropping         		| Crop out top 40 an bottom 20  							| 
+| Convolution 5x5     	| 2x2 stride, depth 24 	|
+| RELU					|												|
+| Convolution 5x5	    | 2x2 stride, depth 36 	|
+| RELU					|												|
+| Convolution 3x3	    | 2x2 stride, depth 48 	|
+| RELU					|												|
+| Convolution 3x3	    | 1x1 stride, depth 64 	|
+| RELU					|												|
+| Fully connected		| outputs 100        									|
+| Fully connected		| outputs 50        									|
+| Fully connected		| outputs 10        									|
+| Softmax				|         									|
+|						|												|
+|						|												|
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
