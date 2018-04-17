@@ -54,11 +54,17 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+My model consists of:
+ - 2 convolution with 5x5 filter sizes and depths 24 and 36 (model.py lines 77-78) 
+ - 2 convolution with 3x3 filter sizes and depths 48 and 64 (model.py lines 79-80) 
+ - Flatten (model.py line 81)
+ - 4 Fully connected layer (model.py lines 82-85)
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+The model includes RELU layers to introduce nonlinearity (code line 77-80), and the data is normalized in the model using a Keras lambda layer (code line 75). 
 
 #### 2. Attempts to reduce overfitting in the model
+
+I use fewer epochs to reduce overfitting. I tried dropout layer but it doesn't perform 
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
 
@@ -66,11 +72,11 @@ The model was trained and validated on different data sets to ensure that the mo
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 87).
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road, side images and flipped images.
 
 For details about how I created the training data, see the next section. 
 
