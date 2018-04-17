@@ -136,7 +136,7 @@ To augment the dataset, I flipped images and angles thinking that this would hel
 I also augment the dataset by using the left and right side images and adding/minusing a correction of 0.5 to the center angles. Here are images of left and right side images of the centered image shown above:
 
 ![alt text][image5]
-![alt text][image4]
+
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
